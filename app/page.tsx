@@ -1,5 +1,7 @@
 'use client';
 
+import React from 'react';
+
 interface Project {
   id: string;
   title: string;
@@ -8,7 +10,7 @@ interface Project {
   tags: string[];
   demoUrl: string;
   githubUrl: string;
-  status: 'Online' | 'En Desarrollo' | 'Demo';
+  status: string;
   image: string;
 }
 
@@ -19,121 +21,116 @@ const projects: Project[] = [
     category: 'Full Stack Web Application',
     description: 'Sistema integral de reservas de Tee Times para clubes de golf de lujo con interfaz estilo resort, API REST en TypeScript y persistencia en PostgreSQL.',
     tags: ['Next.js 16', 'TypeScript', 'Node.js', 'Express', 'PostgreSQL', 'Tailwind CSS', 'Docker'],
-    demoUrl: 'http://localhost:3000', // Enlace local o la URL pública cuando la despliegues
+    demoUrl: '#', // Cambia por tu demo o ruta
     githubUrl: 'https://github.com/David-Alejandro-Caamal-Tuz/golf-club-platform',
     status: 'Online',
     image: 'https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?q=80&w=800&auto=format&fit=crop',
   },
 ];
 
-export default function PortfolioHub() {
+export default function Home() {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100">
-      
-      {/* Header / Presentación Personal */}
-      <header className="border-b border-slate-800 bg-slate-900/60 backdrop-blur sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="flex items-center space-x-3">
-            <div className="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></div>
-            <span className="font-semibold text-lg tracking-wide text-white">David Caamal</span>
-            <span className="text-slate-500 text-sm hidden sm:inline">| Full-Stack Developer</span>
+    <main className="min-h-screen bg-slate-950 text-slate-100 p-6 md:p-12">
+      {/* 1. HEADER CON TU NOMBRE, FOTO Y ESTADO */}
+      <header className="max-w-4xl mx-auto flex items-center justify-between border-b border-slate-800 pb-6 mb-10">
+        <div className="flex items-center gap-4">
+          {/* FOTO CERCA DEL NOMBRE */}
+          <img 
+            src="/avatar.png" 
+            alt="David Caamal" 
+            className="w-12 h-12 rounded-full object-cover border-2 border-emerald-500/50 shadow-md"
+          />
+          <div>
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              <h1 className="text-xl font-bold tracking-tight text-slate-100">David Caamal</h1>
+            </div>
+            <p className="text-xs text-slate-400">Full-Stack Developer</p>
           </div>
-          <div className="text-xs bg-slate-800/80 border border-slate-700/80 px-3 py-1.5 rounded-full text-slate-300">
-            🔒 Entorno Privado de Presentación
-          </div>
+        </div>
+
+        <div className="text-xs bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-lg text-slate-300">
+          🔒 Entorno Privado de Presentación
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="max-w-6xl mx-auto px-6 pt-12 pb-8">
-        <div className="max-w-3xl space-y-4">
-          <span className="text-xs font-mono uppercase tracking-widest text-emerald-400 bg-emerald-950/60 border border-emerald-800/80 px-3 py-1 rounded-full inline-block">
-            Portfolio & Project Showcase
-          </span>
-          <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-white">
-            Plataformas Web, APIs y Arquitectura de Software
-          </h1>
-          <p className="text-slate-400 text-base md:text-lg leading-relaxed">
-            Espacio centralizado de demostraciones interactivas, código fuente y detalles técnicos de las aplicaciones Full Stack que he construido.
-          </p>
-        </div>
-      </section>
+      {/* 2. SECCIÓN PRINCIPAL / PROYECTOS */}
+      <section className="max-w-4xl mx-auto">
+        <h2 className="text-3xl font-bold tracking-tight mb-2">Plataformas Web, APIs y Arquitectura de Software</h2>
+        <p className="text-slate-400 mb-8">
+          Espacio centralizado de demostraciones interactivas, código fuente y detalles técnicos de las aplicaciones Full Stack que he construido.
+        </p>
 
-      {/* Showcase de Proyectos */}
-      <main className="max-w-6xl mx-auto px-6 py-8">
-        <h2 className="text-xl font-semibold mb-6 text-slate-200 border-b border-slate-800 pb-3">
-          Proyectos Destacados
-        </h2>
+        <h3 className="text-xl font-semibold mb-4 text-slate-200">Proyectos Destacados</h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid gap-6">
           {projects.map((project) => (
-            <div 
-              key={project.id} 
-              className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-slate-700 transition duration-300 flex flex-col justify-between shadow-xl"
-            >
-              <div>
-                {/* Visual / Mini-captura */}
-                <div className="relative h-48 w-full bg-slate-800 overflow-hidden">
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
-                    className="w-full h-full object-cover hover:scale-105 transition duration-500"
-                  />
-                  <div className="absolute top-3 right-3 bg-slate-950/80 border border-slate-700 backdrop-blur px-2.5 py-1 rounded-full text-[11px] font-semibold text-emerald-400">
-                    ● {project.status}
-                  </div>
-                </div>
-
-                {/* Info del Proyecto */}
-                <div className="p-6 space-y-4">
-                  <div>
-                    <span className="text-xs text-emerald-400 font-medium uppercase tracking-wider">{project.category}</span>
-                    <h3 className="text-xl font-bold text-white mt-1">{project.title}</h3>
-                  </div>
-
-                  <p className="text-slate-400 text-sm leading-relaxed">
-                    {project.description}
-                  </p>
-
-                  {/* Badges de Tecnologías */}
-                  <div className="flex flex-wrap gap-1.5 pt-2">
-                    {project.tags.map((tag) => (
-                      <span key={tag} className="text-[11px] bg-slate-800 text-slate-300 px-2.5 py-1 rounded border border-slate-700/50">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+            <div key={project.id} className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-xl p-5">
+              <div className="relative h-48 w-full mb-4 overflow-hidden rounded-lg">
+                <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+              </div>
+              <span className="text-xs text-emerald-400 font-medium">{project.category}</span>
+              <h4 className="text-xl font-bold text-slate-100 mt-1">{project.title}</h4>
+              <p className="text-sm text-slate-400 mt-2">{project.description}</p>
+              
+              <div className="flex flex-wrap gap-2 mt-4">
+                {project.tags.map((tag, idx) => (
+                  <span key={idx} className="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-md">
+                    {tag}
+                  </span>
+                ))}
               </div>
 
-              {/* Acciones / Links */}
-              <div className="p-6 pt-0 flex gap-3">
-                <a 
-                  href={project.demoUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex-1 text-center bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold py-2.5 rounded transition shadow-md"
-                >
+              <div className="flex gap-4 mt-6">
+                <a href={project.demoUrl} className="bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors">
                   Ver Demo en Vivo ↗
                 </a>
-                <a 
-                  href={project.githubUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex-1 text-center bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 text-xs font-semibold py-2.5 rounded transition"
-                >
+                <a href={project.githubUrl} target="_blank" rel="noreferrer" className="bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm font-medium px-4 py-2 rounded-lg transition-colors">
                   Código en GitHub
                 </a>
               </div>
             </div>
           ))}
         </div>
-      </main>
+      </section>
 
-      {/* Footer */}
-      <footer className="border-t border-slate-800 mt-16 py-8 text-center text-xs text-slate-500">
-        <p>© 2026 David Caamal · Desplegado en Cloudflare Pages</p>
-      </footer>
-    </div>
+      {/* 3. SECCIÓN DEL CV PROTEGIDO (UBICADA AL FINAL) */}
+      <section className="mt-20 max-w-4xl mx-auto pt-10 border-t border-slate-800">
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <h3 className="text-2xl font-bold text-slate-100">Curriculum Vitae</h3>
+            <p className="text-sm text-slate-400">
+              Visualización exclusiva para fines de reclutamiento
+            </p>
+          </div>
+          <span className="text-xs bg-amber-500/10 text-amber-400 border border-amber-500/20 px-3 py-1.5 rounded-full font-medium">
+            🔒 Solo Lectura
+          </span>
+        </div>
+
+        {/* Visor con restricciones de clic derecho y arrastre */}
+        <div 
+          className="relative overflow-hidden rounded-xl border border-slate-800 bg-slate-900/50 p-4 shadow-2xl select-none"
+          onContextMenu={(e) => e.preventDefault()}
+        >
+          {/* Capa transparente superior que bloquea interacciones de guardado */}
+          <div className="absolute inset-0 z-10 cursor-default" />
+
+          {/* Imagen de tu CV */}
+          <div className="flex justify-center">
+            <img 
+              src="/cv-david-caamal.png" 
+              alt="Curriculum Vitae - David Caamal" 
+              className="w-full max-w-2xl h-auto rounded border border-slate-800 pointer-events-none select-none opacity-95 hover:opacity-100 transition-opacity"
+              draggable={false}
+            />
+          </div>
+        </div>
+
+        <p className="text-xs text-slate-500 text-center mt-3">
+          Documento confidencial. Prohibida su reproducción total o parcial.
+        </p>
+      </section>
+    </main>
   );
 }
