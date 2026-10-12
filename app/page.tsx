@@ -125,6 +125,15 @@ export default function Home() {
               draggable={false}
             />
           </div>
+          {/* Imagen de tu CV */}
+          <div className="flex justify-center">
+            <img 
+              src="/imagen.png" 
+              alt="Curriculum Vitae - David Caamal" 
+              className="w-full max-w-2xl h-auto rounded border border-slate-800 pointer-events-none select-none opacity-95 hover:opacity-100 transition-opacity"
+              draggable={false}
+            />
+          </div>
         </div>
 
         <p className="text-xs text-slate-500 text-center mt-3">
