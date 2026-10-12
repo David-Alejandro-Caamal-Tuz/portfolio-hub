@@ -117,18 +117,16 @@ export default function Home() {
           <div className="absolute inset-0 z-10 cursor-default" />
 
           {/* Imagen de tu CV */}
-          <div className="flex justify-center">
+          <div className="flex flex-col items-center gap-6">
             <img 
               src="/cv-david-caamal.png" 
               alt="Curriculum Vitae - David Caamal" 
               className="w-full max-w-2xl h-auto rounded border border-slate-800 pointer-events-none select-none opacity-95 hover:opacity-100 transition-opacity"
               draggable={false}
             />
-          </div>
-          {/* Imagen de tu CV */}
-          <div className="flex justify-center">
+            
             <img 
-              src="/imagen.png" 
+              src="/image.png" 
               alt="Curriculum Vitae - David Caamal" 
               className="w-full max-w-2xl h-auto rounded border border-slate-800 pointer-events-none select-none opacity-95 hover:opacity-100 transition-opacity"
               draggable={false}
