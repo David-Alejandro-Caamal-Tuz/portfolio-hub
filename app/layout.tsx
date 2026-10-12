@@ -1,9 +1,9 @@
-import type { Metadata } from 'next';
-import './globals.css';
+import "./globals.css";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'David Caamal | Portfolio & Project Showcase',
-  description: 'Hub privado de proyectos Full Stack e Ingeniería de Software.',
+  title: "Portfolio Hub | David Caamal",
+  description: "Portafolio privado de proyectos",
   robots: {
     index: false,
     follow: false,
@@ -16,8 +16,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es">
-      <body className="bg-slate-950 text-slate-100 font-sans antialiased">
+    <html lang="es" className="dark">
+      <body className="bg-slate-950 text-slate-100 min-h-screen">
         {children}
       </body>
     </html>
