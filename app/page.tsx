@@ -21,7 +21,7 @@ const projects: Project[] = [
     category: 'Full Stack Web Application',
     description: 'Sistema integral de reservas de Tee Times para clubes de golf de lujo con interfaz estilo resort, API REST en TypeScript y persistencia en PostgreSQL.',
     tags: ['Next.js 16', 'TypeScript', 'Node.js', 'Express', 'PostgreSQL', 'Tailwind CSS', 'Docker'],
-    demoUrl: '#',
+    demoUrl: 'https://golf-club-platform.pages.dev/',
     githubUrl: 'https://github.com/David-Alejandro-Caamal-Tuz/golf-club-platform',
     status: 'Online',
     image: 'https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?q=80&w=800&auto=format&fit=crop',
