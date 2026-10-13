@@ -178,7 +178,7 @@ export default function Home() {
 
               <div>
                 <div className="flex justify-between items-start flex-wrap gap-1">
-                  <h6 className="font-bold text-slate-200">Soporte Técnico General / Correctivo</h6>
+                  <h6 className="font-bold text-slate-200">Soporte Técnico General / Preventivo & Correctivo</h6>
                   <span className="text-xs text-slate-400 bg-slate-800 px-2 py-0.5 rounded">2021 – 2023</span>
                 </div>
                 <p className="text-xs text-emerald-400 font-medium">Mause Technology / Plaza de la Tecnología / Repairtech / See Solucion</p>
